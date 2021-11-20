@@ -15,10 +15,9 @@ with open("50_states.csv", newline='') as csv_file:
         states_list.append(row)
 states_list.pop(0)
 
-game_on = True
 correct_guesses = 0
 
-while game_on:
+while correct_guesses < 50:
     answer_state = screen.textinput(
         title=f"{correct_guesses}/50 States",
         prompt="What's another states' name?"
@@ -33,3 +32,35 @@ while game_on:
             correct_guesses += 1
 
 turtle.mainloop()
+
+
+# import pandas
+# import turtle
+
+
+# screen = turtle.Screen()
+# screen.title("U.S. States Game")
+# image = "./blank_states_img.gif"
+# screen.addshape(image)
+# turtle.shape(image)
+
+# data = pandas.read_csv("50_states.csv")
+# all_states = data.state.tolist()
+# guessed_states = []
+
+# while len(guessed_states) < 50:
+#     answer_state = screen.textinput(
+#         title=f"{len(guessed_states)}/50 States",
+#         prompt="What's another states' name?"
+#     ).title()
+
+#     if answer_state in all_states:
+#         guessed_states.append(answer_state)
+#         t = turtle.Turtle()
+#         t.hideturtle()
+#         t.penup()
+#         state_data = data[data.state == answer_state]
+#         t.goto(int(state_data.x), int(state_data.y))
+#         t.write(state_data.state.item())
+
+# screen.exitonclick()
